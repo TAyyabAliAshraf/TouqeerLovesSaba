@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touqeer's Proposal to Saba</title>
+    <style>
+        body {
+            font-family: 'Great Vibes', cursive;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            margin: 0;
+            padding: 0;
+            color: #5d2a42;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeIn 2s;
+        }
+        
+        .couple-photo {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 10px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 30px auto;
+            animation: pulse 2s infinite;
+        }
+        
+        .message {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            margin: 40px 0;
+            animation: slideUp 1.5s;
+        }
+        
+        .memories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px 0;
+        }
+        
+        .memory {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .memory:hover {
+            transform: scale(1.1);
+        }
+        
+        .proposal-button {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 30px 0;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .proposal-button:hover {
+            background-color: #ff4757;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Saba, My Love</h1>
+        
+        <img src="couple.jpg" alt="Touqeer and Saba" class="couple-photo">
+        
+        <div class="message">
+            From the moment I met you, I knew my life would never be the same.<br>
+            Your smile brightens my darkest days, and your love completes me.<br>
+            We've shared so many beautiful moments together...
+        </div>
+        
+        <div class="memories">
+            <img src="memory1.jpg" alt="Memory 1" class="memory">
+            <img src="memory2.jpg" alt="Memory 2" class="memory">
+            <img src="memory3.jpg" alt="Memory 3" class="memory">
+            <img src="memory4.jpg" alt="Memory 4" class="memory">
+        </div>
+        
+        <div class="message">
+            Now, I want to create the most important memory of our lives.<br>
+            Saba, you once said "propose me"... and today, I'm doing just that.
+        </div>
+        
+        <button class="proposal-button">Click for My Question</button>
+        
+        <div class="hidden-proposal" style="display: none;">
+            <h2 style="font-size: 3rem; margin-top: 50px;">Saba, will you marry me?</h2>
+            <div style="display: flex; justify-content: center; gap: 20px; margin-top: 30px;">
+                <button id="yes-btn" style="background-color: #4CAF50; padding: 10px 30px; font-size: 1.3rem;">YES!</button>
+                <button id="no-btn" style="background-color: #f44336; padding: 10px 30px; font-size: 1.3rem;">No</button>
+            </div>
+        </div>
+        
+        <div id="yes-message" style="display: none; font-size: 2.5rem; margin: 50px 0;">
+            I knew you'd say yes! ❤️<br>
+            I can't wait to spend forever with you, Saba!
+        </div>
+    </div>
+    
+    <footer>
+        Made with love by Touqeer for his beautiful Saba
+    </footer>
+    
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = Math.random() * 100 + 'vh';
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        setInterval(createHearts, 300);
+        
+        // Proposal button functionality
+        const proposalBtn = document.querySelector('.proposal-button');
+        const hiddenProposal = document.querySelector('.hidden-proposal');
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const yesMessage = document.getElementById('yes-message');
+        
+        proposalBtn.addEventListener('click', () => {
+            proposalBtn.style.display = 'none';
+            hiddenProposal.style.display = 'block';
+        });
+        
+        yesBtn.addEventListener('click', () => {
+            hiddenProposal.style.display = 'none';
+            yesMessage.style.display = 'block';
+            // Fireworks effect
+            for(let i = 0; i < 100; i++) {
+                setTimeout(createHearts, i * 50);
+            }
+        });
+        
+        noBtn.addEventListener('click', () => {
+            noBtn.style.position = 'absolute';
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        });
+    </script>
+</body>
+</html>
